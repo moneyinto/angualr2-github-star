@@ -28,7 +28,14 @@ module.exports = {
             },
             {
                 test: /\.ts$/,
-                use: 'ts-loader'
+                use: [
+                    {
+                        loader: 'ts-loader'
+                    },
+                    {
+                        loader: 'angular2-template-loader'
+                    }
+                ]
             },
             {
                 test: /\.css$/,
