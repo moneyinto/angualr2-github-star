@@ -10,3 +10,5 @@ npm-debug.log
 
 # Dist #
 /dist
+
+.vscode/
