@@ -10,7 +10,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: './src/index.html'
         })
     ],
     output: {
@@ -23,7 +23,7 @@ module.exports = {
         modules: [path.resolve('node_modules')],
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.json$/,
                 use: 'json-loader'

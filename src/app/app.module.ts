@@ -5,6 +5,8 @@ import { MyErrorHandler } from './myErrorHandler';
 import { ROUTES } from './app.routes';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+import { Home } from '../pages/home/home';
+
 import { MyApp } from './app.component';
 
 @NgModule({
@@ -13,7 +15,8 @@ import { MyApp } from './app.component';
         RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
     ],
     declarations: [
-        MyApp
+        MyApp,
+        Home
     ],
     providers: [{provide: ErrorHandler, useClass: MyErrorHandler}],
     bootstrap: [MyApp]
