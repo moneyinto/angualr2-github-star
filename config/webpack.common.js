@@ -1,11 +1,9 @@
-const webpack = require('webpack');
-
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
+        'polyfills': './src/polyfills.browser.ts',
         'main': './src/main.ts'
     },
     plugins: [
@@ -14,7 +12,7 @@ module.exports = {
         })
     ],
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: '[name].bundle.js',
         sourceMapFilename: '[file].map'
     },
