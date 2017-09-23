@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -16,7 +17,11 @@ module.exports = {
             /(.+)?angular(\\|\/)core(.+)?/,
             '',
             {}
-          )
+        ),
+
+        new CopyWebpackPlugin([
+            { from: './src/assets', to: 'assets' }
+        ])
     ],
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -43,14 +48,6 @@ module.exports = {
                         loader: 'angular2-template-loader'
                     }
                 ]
-            },
-            {
-                test: /\.css$/,
-                use: ['to-string-loader', 'css-loader']
-            },
-            {
-                test: /\.scss$/,
-                use: ['to-string-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.html$/,
