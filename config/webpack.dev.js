@@ -6,7 +6,7 @@ const HOST = 'localhost';
 const PORT = 4000;
 
 module.exports = merge(common, {
-    devtool: 'cheap-module-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         port: PORT,
         host: HOST,
@@ -16,8 +16,17 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
-                include: [path.resolve(__dirname, '../src/styles')]
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             }
         ]
     }

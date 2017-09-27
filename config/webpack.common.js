@@ -52,14 +52,6 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: 'raw-loader'
-            },
-            {
-                test: /\.(jpg|png|gif)$/,
-                use: 'file-loader'
-            },
-            {
-                test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
-                use: 'file-loader'
             }
         ]
     }
