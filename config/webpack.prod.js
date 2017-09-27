@@ -23,9 +23,6 @@ module.exports = merge(common, {
                         loader: "css-loader"
                     }, {
                         loader: "sass-loader",
-                        options: {
-                            includePaths: [path.resolve(__dirname, '../src/styles')]
-                        }
                     }],
                     // 在开发环境使用 style-loader
                     fallback: "style-loader"
@@ -37,6 +34,17 @@ module.exports = merge(common, {
         extractSass,
 
         new UglifyJsPlugin({
+            parallel: true,
+            uglifyOptions: {
+                ie8: false,
+                ecma: 5,
+                warnings: true,
+                mangle: true,
+                output: {
+                    comments: false,
+                    beautify: false,
+                }
+            },
             sourceMap: false
         })
     ]

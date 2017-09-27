@@ -7,7 +7,7 @@ import { ROUTES } from './app.routes';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { MyApp } from './app.component';
-import { Home } from '../pages/home/home';
+import { config } from './app.config';
 
 @NgModule({
     imports: [
@@ -17,7 +17,7 @@ import { Home } from '../pages/home/home';
     ],
     declarations: [
         MyApp,
-        Home
+        ...config.DECLARATIONS
     ],
     providers: [{provide: ErrorHandler, useClass: MyErrorHandler}],
     bootstrap: [MyApp]
